@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  postgres:
+    image: 'library/postgres:14.5-alpine'
+    container_name: 'java-postgres'
+    ports:
+      - 5432:5432
+    environment:
+      - 'POSTGRES_USER=test'
+      - 'POSTGRES_HOST_AUTH_METHOD=trust'
+      - 'POSTGRES_DB=Tinder_User'
+      - 'POSTGRES_PASSWORD=test'
