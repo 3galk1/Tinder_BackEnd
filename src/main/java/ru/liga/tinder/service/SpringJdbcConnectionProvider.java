@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import ru.liga.tinder.dto.User;
-import ru.liga.tinder.model.type.GenderType;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,6 +20,17 @@ public class SpringJdbcConnectionProvider {
         String sql = "select * from homework.customers";
         ExchangeMapper mapper = new ExchangeMapper();
         return jdbcTemplate.query(sql, mapper);
+    }
+
+    public User getUserById(int id) {
+        List<User> user = getAllUser();
+        for (User customer : user) {
+            if (customer.getId() == id) {
+                return customer;
+
+            }
+        }
+        return null;
     }
 
     private static class ExchangeMapper implements RowMapper<User> {

@@ -9,5 +9,5 @@ services:
     environment:
       - 'POSTGRES_USER=test'
       - 'POSTGRES_HOST_AUTH_METHOD=trust'
-      - 'POSTGRES_DB=Tinder_User'
+      - 'POSTGRES_DB=tinder_server'
       - 'POSTGRES_PASSWORD=test'

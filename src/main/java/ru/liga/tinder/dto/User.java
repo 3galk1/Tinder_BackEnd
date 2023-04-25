@@ -1,7 +1,6 @@
 package ru.liga.tinder.dto;
 
 import lombok.*;
-import ru.liga.tinder.model.type.GenderType;
 
 @Data
 @Builder
@@ -10,10 +9,10 @@ import ru.liga.tinder.model.type.GenderType;
 @Getter
 public class User {
 
-        private long id;
-        private String userId;
-        private String gender;
-        private String name;
-        private String description;
-        private String searchGender;
+    private long id;
+    private String userId;
+    private String gender;
+    private String name;
+    private String description;
+    private String searchGender;
 }

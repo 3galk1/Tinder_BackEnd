@@ -1,9 +1,10 @@
-CREATE TABLE IF NOT EXISTS homework.customers
+CREATE TABLE IF NOT EXISTS server.customer
 (
     ID SERIAL,
-    USER_ID char varying (20),
-    FIO char varying (100),
-    GENDER_TYPE char (10),
-    DESCRIPTION char (250),
-    SEARCH_GENDER char (10)
+    USER_ID varchar (20),
+    FIO varchar (100),
+    GENDER_TYPE varchar (10),
+    DESCRIPTION varchar (250),
+    SEARCH_GENDER varchar (10),
+    STATE varchar (1)
 );

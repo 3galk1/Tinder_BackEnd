@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Tinder_User@localhost" uuid="019b8ba4-c5cf-4d9e-ad82-ff757eef55de">
+    <data-source source="LOCAL" name="Tinder_BackEnd/Hibernate" uuid="3d4084b1-8e1c-4f25-a443-ddb72a23d2d3">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/Tinder_User</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/tinder_server</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
