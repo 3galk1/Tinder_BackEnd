@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import ru.liga.tinder.dto.UserDto;
 import ru.liga.tinder.entity.User;
 import ru.liga.tinder.service.SpringDataConnectionProvider;
 
@@ -11,36 +12,34 @@ import java.util.List;
 
 @Data
 @RestController
-@RequestMapping("/api/tinder-server/user")
+@RequestMapping("/api/tinder-server/users")
 public class RestUserController {
 
     @Autowired
     private SpringDataConnectionProvider springDataConnectionProvider;
 
     @GetMapping()
-    public List<User> getAllUser() {
+    public List<UserDto> getAllUsers() {
         return springDataConnectionProvider.getAllUser();
     }
 
     @GetMapping("/{id}")
-    public User getById(@PathVariable("id") long id) {
+    public UserDto getById(@PathVariable("id") long id) {
         return springDataConnectionProvider.getUserById(id);
     }
-//    @GetMapping("/{id}/state")
-//    public User getStateById(@RequestParam("id") long id) {
-//        return springDataConnectionProvider.getStateById(id);
-//    }
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public UserDto createUser(@RequestBody UserDto user) {
+        springDataConnectionProvider.createUser(user);
+        return springDataConnectionProvider.createUser(user);
+    }
 
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public User create(@RequestBody User user) {
-//        return new User(
-//                user.getId(),
-//                user.getName(),
-//                user.getDate(),
-//                user.getStatus()
-//        );
+//    @PatchMapping()
+//    @ResponseStatus(HttpStatus.OK)
+//    public HttpStatus updateUser (@RequestBody UserDto user){
+//        springDataConnectionProvider.updateUser(user);
+//        return HttpStatus.OK;
 //    }
 
 }

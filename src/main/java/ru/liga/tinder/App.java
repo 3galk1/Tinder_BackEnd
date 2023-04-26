@@ -10,17 +10,10 @@ import ru.liga.tinder.service.SpringDataConnectionProvider;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,
         PersistenceExceptionTranslationAutoConfiguration.class})
-public class App implements CommandLineRunner {
-
-    @Autowired
-    private SpringDataConnectionProvider springDataConnectionProvider;
+public class App {
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
 
-    @Override
-    public void run(String... args) {
-        springDataConnectionProvider.getAllUser();
-    }
 }

@@ -1,13 +1,17 @@
 package ru.liga.tinder.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+import ru.liga.tinder.model.type.GenderType;
 
 import java.io.Serializable;
 
-@Data
+@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "customer", schema = "server")
+@Table(name = "user", schema = "server")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,16 +20,16 @@ public class User implements Serializable {
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column (name = "user_id")
+    @Column(name = "user_id")
     private String userId;
-    @Column (name = "fio")
+    @Column(name = "fio")
     private String FIO;
     @Column(name = "gender_type")
-    private String genderType;
-    @Column (name = "description")
+    private GenderType genderType;
+    @Column(name = "description")
     private String decsription;
-    @Column (name = "search_gender")
-    private String searchGender;
-    @Column (name = "state")
-    private String state;
+    @Column(name = "search_gender")
+    private GenderType searchGender;
+    @Column(name = "stage_of_questionnaire")
+    private String stateOfQuestionnaire;
 }

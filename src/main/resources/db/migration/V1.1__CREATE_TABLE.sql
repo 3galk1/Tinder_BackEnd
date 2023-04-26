@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS server.customer
+CREATE TABLE IF NOT EXISTS server.user
 (
     ID SERIAL,
     USER_ID varchar (20),
@@ -6,5 +6,12 @@ CREATE TABLE IF NOT EXISTS server.customer
     GENDER_TYPE varchar (10),
     DESCRIPTION varchar (250),
     SEARCH_GENDER varchar (10),
-    STATE varchar (1)
+    STAGE_OF_QUESTIONNAIRE varchar (1)
+);
+
+CREATE TABLE IF NOT EXISTS server.liked_user
+(
+    ID SERIAL,
+    USER_ID varchar (20),
+    LIKED_USER_ID varchar (20)
 );
