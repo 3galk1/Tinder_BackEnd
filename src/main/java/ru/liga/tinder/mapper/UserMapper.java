@@ -38,6 +38,7 @@ public class UserMapper {
                 .genderType(userDto.getGender())
                 .decsription(userDto.getDescription())
                 .searchGender(userDto.getSearchGender())
+                .stateOfQuestionnaire(userDto.getStageOfQuestionnaire())
                 .build();
     }
 }

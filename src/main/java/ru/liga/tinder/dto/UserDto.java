@@ -12,10 +12,10 @@ public class UserDto {
 
     private long id;
     private String userId;
-    private GenderType gender;
+    private String gender;
     private String name;
     private String description;
-    private GenderType searchGender;
+    private String searchGender;
     private String stageOfQuestionnaire;
 
 }

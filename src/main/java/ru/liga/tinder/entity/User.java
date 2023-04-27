@@ -25,11 +25,11 @@ public class User implements Serializable {
     @Column(name = "fio")
     private String FIO;
     @Column(name = "gender_type")
-    private GenderType genderType;
+    private String genderType;
     @Column(name = "description")
     private String decsription;
     @Column(name = "search_gender")
-    private GenderType searchGender;
+    private String searchGender;
     @Column(name = "stage_of_questionnaire")
     private String stateOfQuestionnaire;
 }

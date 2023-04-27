@@ -1,5 +1,6 @@
 package ru.liga.tinder.controller;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,12 +12,12 @@ import ru.liga.tinder.service.SpringDataConnectionProvider;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
 @RestController
 @RequestMapping("/api/tinder-server/users")
 public class RestUserController {
 
-    @Autowired
-    private SpringDataConnectionProvider springDataConnectionProvider;
+    private final SpringDataConnectionProvider springDataConnectionProvider;
 
     @GetMapping()
     public List<UserDto> getAllUsers() {
@@ -28,7 +29,7 @@ public class RestUserController {
         return springDataConnectionProvider.getUserById(id);
     }
 
-    @PostMapping
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public UserDto createUser(@RequestBody UserDto user) {
         springDataConnectionProvider.createUser(user);
