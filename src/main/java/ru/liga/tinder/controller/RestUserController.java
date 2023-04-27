@@ -32,15 +32,13 @@ public class RestUserController {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public UserDto createUser(@RequestBody UserDto user) {
-        springDataConnectionProvider.createUser(user);
         return springDataConnectionProvider.createUser(user);
     }
 
-//    @PatchMapping()
-//    @ResponseStatus(HttpStatus.OK)
-//    public HttpStatus updateUser (@RequestBody UserDto user){
-//        springDataConnectionProvider.updateUser(user);
-//        return HttpStatus.OK;
-//    }
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserDto updateUser (@RequestBody UserDto user){
+        return springDataConnectionProvider.updateUser(user);
+    }
 
 }

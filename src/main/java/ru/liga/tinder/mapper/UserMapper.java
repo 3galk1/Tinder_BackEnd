@@ -41,4 +41,27 @@ public class UserMapper {
                 .stateOfQuestionnaire(userDto.getStageOfQuestionnaire())
                 .build();
     }
+
+    public User updateUser(UserDto userDto) {
+        User user = new User();
+        if (!userDto.getUserId().isEmpty()) {
+            user.setUserId(userDto.getUserId());
+        }
+        else if (!userDto.getGender().isEmpty()) {
+            user.setGenderType(userDto.getGender());
+        }
+        else if (!userDto.getName().isEmpty()) {
+            user.setFIO(userDto.getName());
+        }
+        else if (!userDto.getDescription().isEmpty()) {
+            user.setDecsription(userDto.getDescription());
+        }
+        else if (!userDto.getSearchGender().isEmpty()) {
+            user.setSearchGender(userDto.getSearchGender());
+        }
+        else if (!userDto.getStageOfQuestionnaire().isEmpty()) {
+            user.setStateOfQuestionnaire(userDto.getStageOfQuestionnaire());
+        }
+        return user;
+    }
 }

@@ -33,16 +33,17 @@ public class SpringDataConnectionProvider {
 
     public UserDto createUser(UserDto userDto) {
         User user = userMapper.createUser(userDto);
-        userRepository.save(user);
-        return null;
+        User createUser = userRepository.save(user);
+        return getUserById(createUser.getId());
     }
 
 
-//        public void updateCustomer(long id){
-//            Customer customer = userRepository.getCustomerById(id);
-//            customer.setState();
-//            userRepository.save(customer);
-//        }
+        public UserDto updateUser(UserDto userDto){
+            User user = userRepository.getUserById(userDto.getId());
+            user = userMapper.updateUser(userDto);
+            userRepository.save(user);
+            return getUserById(user.getId());
+        }
 
 
 }
