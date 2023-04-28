@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.liga.tinder.dto.UserDto;
+import ru.liga.tinder.entity.LikedUser;
 import ru.liga.tinder.entity.User;
 import ru.liga.tinder.service.SpringDataConnectionProvider;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/tinder-server/users")
+@RequestMapping("/api/v1/tinder-server/user")
 public class RestUserController {
 
     private final SpringDataConnectionProvider springDataConnectionProvider;
@@ -28,6 +29,11 @@ public class RestUserController {
     public UserDto getById(@PathVariable("id") long id) {
         return springDataConnectionProvider.getUserById(id);
     }
+
+//    @GetMapping("/likedUser")
+//    public List<LikedUser> likedUsers getById(@PathVariable("id") long id) {
+//        return springDataConnectionProvider.getUserById(id);
+//    }
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)

@@ -22,8 +22,8 @@ public class UserMapper {
         return UserDto.builder()
                 .id(user.getId())
                 .userId(user.getUserId())
-                .name(user.getFIO())
-                .gender(user.getGenderType())
+                .name(user.getName())
+                .genderType(user.getGenderType())
                 .description(user.getDecsription())
                 .searchGender(user.getSearchGender())
                 .stageOfQuestionnaire(user.getStateOfQuestionnaire())
@@ -34,8 +34,8 @@ public class UserMapper {
         return User.builder()
                 .id(userDto.getId())
                 .userId(userDto.getUserId())
-                .FIO(userDto.getName())
-                .genderType(userDto.getGender())
+                .name(userDto.getName())
+                .genderType(userDto.getGenderType())
                 .decsription(userDto.getDescription())
                 .searchGender(userDto.getSearchGender())
                 .stateOfQuestionnaire(userDto.getStageOfQuestionnaire())
@@ -47,11 +47,11 @@ public class UserMapper {
         if (!userDto.getUserId().isEmpty()) {
             user.setUserId(userDto.getUserId());
         }
-        else if (!userDto.getGender().isEmpty()) {
-            user.setGenderType(userDto.getGender());
+        else if (!userDto.getGenderType().isEmpty()) {
+            user.setGenderType(userDto.getGenderType());
         }
         else if (!userDto.getName().isEmpty()) {
-            user.setFIO(userDto.getName());
+            user.setName(userDto.getName());
         }
         else if (!userDto.getDescription().isEmpty()) {
             user.setDecsription(userDto.getDescription());

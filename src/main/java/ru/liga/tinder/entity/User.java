@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Setter
 @Getter
@@ -11,7 +12,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user", schema = "server")
+@Table(name = "user", schema = "tinder")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -19,16 +20,21 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "user_id")
+    @Column(name = "telegram_id")
     private String userId;
-    @Column(name = "fio")
-    private String FIO;
+    @Column(name = "name")
+    private String name;
     @Column(name = "gender_type")
     private String genderType;
-    @Column(name = "description")
-    private String decsription;
     @Column(name = "search_gender")
     private String searchGender;
+    @Column(name = "description")
+    private String decsription;
     @Column(name = "stage_of_questionnaire")
     private String stateOfQuestionnaire;
+
+
+//    @OneToMany
+//    @JoinColumn(name = "id")
+//    private List<User> likedUser;
 }
