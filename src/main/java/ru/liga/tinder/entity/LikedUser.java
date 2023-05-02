@@ -1,7 +1,13 @@
 package ru.liga.tinder.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Setter
+@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "liked_user", schema = "tinder")
 public class LikedUser {

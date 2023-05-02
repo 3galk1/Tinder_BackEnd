@@ -2,7 +2,6 @@ package ru.liga.tinder.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.liga.tinder.dto.UserDto;
@@ -30,11 +29,6 @@ public class RestUserController {
         return springDataConnectionProvider.getUserById(id);
     }
 
-//    @GetMapping("/likedUser")
-//    public List<LikedUser> likedUsers getById(@PathVariable("id") long id) {
-//        return springDataConnectionProvider.getUserById(id);
-//    }
-
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public UserDto createUser(@RequestBody UserDto user) {
@@ -43,8 +37,14 @@ public class RestUserController {
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public UserDto updateUser (@RequestBody UserDto user){
-        return springDataConnectionProvider.updateUser(user);
+    public UserDto updateUser(@PathVariable("id") long id, @RequestBody UserDto userDto) {
+        return springDataConnectionProvider.updateUser(id, userDto);
+    }
+
+    @GetMapping("/likedUser/id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<LikedUser> getlLikedUserById(@PathVariable("id") long userId) {
+        return springDataConnectionProvider.getUserById(userId);
     }
 
 }
