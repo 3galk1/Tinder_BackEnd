@@ -30,6 +30,13 @@ public class UserMapper {
                 .stageOfQuestionnaire(user.getStateOfQuestionnaire())
                 .build();
     }
+    public UserDto createUserDtoErrorMessage(User user) {
+        return UserDto.builder()
+                .id(user.getId())
+                .telegramId(user.getTelegramId())
+                .errorMessage(user.getErrorMessage())
+                .build();
+    }
 
     public User createUser(UserDto userDto) {
         return User.builder()
@@ -41,6 +48,7 @@ public class UserMapper {
                 .decsription(userDto.getDescription())
                 .preference(userDto.getPreference())
                 .stateOfQuestionnaire(userDto.getStageOfQuestionnaire())
+                .errorMessage("")
                 .build();
     }
 

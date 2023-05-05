@@ -20,9 +20,9 @@ public class LikedUser implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "user_id")
-    private int userId;
+    private long userId;
     @Column(name = "liked_user_Id")
-    private int likedUserId;
+    private long likedUserId;
 
 
 }

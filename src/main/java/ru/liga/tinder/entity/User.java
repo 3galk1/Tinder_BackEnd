@@ -35,8 +35,8 @@ public class User implements Serializable {
     private String decsription;
     @Column(name = "stage_of_questionnaire")
     private int stateOfQuestionnaire;
-    @Column(name = "previous_user_id")
-    private int previousUserId;
-    @Column(name = "next_user_id")
-    private int nextUserId;
+    @Column(name = "current_viewed_user_id")
+    private long currentViewedUserId;
+    @Column(name = "error_message")
+    private String errorMessage;
 }

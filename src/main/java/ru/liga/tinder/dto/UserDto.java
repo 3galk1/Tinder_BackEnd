@@ -23,10 +23,10 @@ public class UserDto {
     private String preference;
     @JsonProperty("stageOfQuestionnaire")
     private int stageOfQuestionnaire;
-    @JsonProperty("previous_user_id")
-    private String previousUserId;
-    @JsonProperty("next_user_id")
-    private String nextUserId;
+    @JsonProperty("current_viewed_user_id")
+    private long currentViewedUserId;
+    @JsonProperty("error_message")
+    private String errorMessage;
 
 }
  

@@ -19,7 +19,6 @@ public class LikedUserMapper {
 
     public LikedUserDto createLikedUserDto(LikedUser likedUser) {
         return LikedUserDto.builder()
-                .userId(likedUser.getUserId())
                 .likedUserId(likedUser.getLikedUserId())
                 .build();
     }
