@@ -9,9 +9,9 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 public class LikedUserDto {
-    private long id;
+
     @JsonProperty("userId")
-    private String userId;
+    private int userId;
     @JsonProperty("likedUserId")
-    private String likedUserId;
+    private int likedUserId;
 }

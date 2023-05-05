@@ -3,11 +3,12 @@ package ru.liga.tinder.controller;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import ru.liga.tinder.dto.LikedUserDto;
 import ru.liga.tinder.dto.UserDto;
-import ru.liga.tinder.entity.LikedUser;
-import ru.liga.tinder.entity.User;
-import ru.liga.tinder.service.SpringDataConnectionProvider;
+import ru.liga.tinder.service.LikedUserDataConnectionService;
+import ru.liga.tinder.service.UserDataConnectionService;
 
 import java.util.List;
 
@@ -16,35 +17,35 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/tinder-server/user")
 public class RestUserController {
-
-    private final SpringDataConnectionProvider springDataConnectionProvider;
+    private final LikedUserDataConnectionService likedUserDataConnectionService;
+    private final UserDataConnectionService userDataConnection;
 
     @GetMapping()
     public List<UserDto> getAllUsers() {
-        return springDataConnectionProvider.getAllUser();
+        return userDataConnection.getAllUser();
     }
 
-    @GetMapping("/{id}")
-    public UserDto getById(@PathVariable("id") long id) {
-        return springDataConnectionProvider.getUserById(id);
+    @GetMapping("/{telegramId}")
+    public UserDto getById(@PathVariable("telegramId") String telegramId) {
+        return userDataConnection.getUserByTelegramId(telegramId);
     }
 
-    @PostMapping()
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public UserDto createUser(@RequestBody UserDto user) {
-        return springDataConnectionProvider.createUser(user);
+        return userDataConnection.createUser(user);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/{telegramId}")
     @ResponseStatus(HttpStatus.OK)
-    public UserDto updateUser(@PathVariable("id") long id, @RequestBody UserDto userDto) {
-        return springDataConnectionProvider.updateUser(id, userDto);
+    public UserDto updateUser(@PathVariable("telegramId") String telegramId, @RequestBody UserDto userDto) {
+        return userDataConnection.updateUser(telegramId, userDto);
     }
 
-    @GetMapping("/likedUser/id}")
+    @GetMapping("/likedUser/{telegramId}")
     @ResponseStatus(HttpStatus.OK)
-    public List<LikedUser> getlLikedUserById(@PathVariable("id") long userId) {
-        return springDataConnectionProvider.getUserById(userId);
+    public List<LikedUserDto> getlLikedUserById(@PathVariable("telegramId") String telegramId) {
+        return likedUserDataConnectionService.getLikedUsersByUserId(telegramId);
     }
 
 }

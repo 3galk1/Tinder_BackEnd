@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Setter
@@ -20,21 +21,22 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "created")
+    private Date created;
     @Column(name = "telegram_id")
-    private String userId;
+    private String telegramId;
     @Column(name = "name")
     private String name;
-    @Column(name = "gender_type")
-    private String genderType;
-    @Column(name = "search_gender")
-    private String searchGender;
+    @Column(name = "gender")
+    private String gender;
+    @Column(name = "preference")
+    private String preference;
     @Column(name = "description")
     private String decsription;
     @Column(name = "stage_of_questionnaire")
-    private String stateOfQuestionnaire;
-
-
-//    @OneToMany
-//    @JoinColumn(name = "id")
-//    private List<User> likedUser;
+    private int stateOfQuestionnaire;
+    @Column(name = "previous_user_id")
+    private int previousUserId;
+    @Column(name = "next_user_id")
+    private int nextUserId;
 }

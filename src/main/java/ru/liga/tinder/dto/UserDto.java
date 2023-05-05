@@ -2,7 +2,6 @@ package ru.liga.tinder.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import ru.liga.tinder.model.type.GenderType;
 
 @Data
 @Builder
@@ -12,18 +11,22 @@ import ru.liga.tinder.model.type.GenderType;
 public class UserDto {
 
     private long id;
-    @JsonProperty("userId")
-    private String userId;
-    @JsonProperty("genderType")
-    private String genderType;
+    @JsonProperty("telegramId")
+    private String telegramId;
+    @JsonProperty("gender")
+    private String gender;
     @JsonProperty("name")
     private String name;
     @JsonProperty("description")
     private String description;
-    @JsonProperty("searchGender")
-    private String searchGender;
+    @JsonProperty("preference")
+    private String preference;
     @JsonProperty("stageOfQuestionnaire")
-    private String stageOfQuestionnaire;
+    private int stageOfQuestionnaire;
+    @JsonProperty("previous_user_id")
+    private String previousUserId;
+    @JsonProperty("next_user_id")
+    private String nextUserId;
 
 }
  
