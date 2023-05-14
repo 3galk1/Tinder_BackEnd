@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "created")
-    private Date created;
+    private LocalDate created;
     @Column(name = "telegram_id")
     private String telegramId;
     @Column(name = "name")
@@ -32,9 +33,9 @@ public class User implements Serializable {
     @Column(name = "preference")
     private String preference;
     @Column(name = "description")
-    private String decsription;
+    private String description;
     @Column(name = "stage_of_questionnaire")
-    private int stateOfQuestionnaire;
+    private int stageOfQuestionnaire;
     @Column(name = "current_viewed_user_id")
     private long currentViewedUserId;
     @Column(name = "error_message")

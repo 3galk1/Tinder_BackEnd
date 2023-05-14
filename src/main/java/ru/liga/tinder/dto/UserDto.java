@@ -11,7 +11,7 @@ import lombok.*;
 public class UserDto {
 
     private long id;
-    @JsonProperty("telegramId")
+    @JsonProperty("telegram_id")
     private String telegramId;
     @JsonProperty("gender")
     private String gender;
@@ -21,7 +21,7 @@ public class UserDto {
     private String description;
     @JsonProperty("preference")
     private String preference;
-    @JsonProperty("stageOfQuestionnaire")
+    @JsonProperty("stage_of_questionnaire")
     private int stageOfQuestionnaire;
     @JsonProperty("current_viewed_user_id")
     private long currentViewedUserId;

@@ -21,7 +21,7 @@ public class LikedUser implements Serializable {
     private long id;
     @Column(name = "user_id")
     private long userId;
-    @Column(name = "liked_user_Id")
+    @Column(name = "liked_user_id")
     private long likedUserId;
 
 

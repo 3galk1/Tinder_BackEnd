@@ -1,7 +1,7 @@
 package ru.liga.tinder.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.liga.tinder.dto.LikedUserDto;
 import ru.liga.tinder.entity.User;
 import ru.liga.tinder.mapper.LikedUserMapper;
@@ -11,7 +11,7 @@ import ru.liga.tinder.repository.UserRepository;
 import java.util.List;
 
 @RequiredArgsConstructor
-@Component
+@Service
 public class LikedUserDataConnectionService {
 
     private final LikedUserMapper likedUserMapper;

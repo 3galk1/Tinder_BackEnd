@@ -4,33 +4,33 @@ import org.springframework.stereotype.Component;
 import ru.liga.tinder.dto.UserDto;
 import ru.liga.tinder.entity.User;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Component
 public class UserMapper {
 
-    public List<UserDto> createUserDtoList(List<User> user) {
+    public List<UserDto> toDtoList(List<User> user) {
         List<UserDto> userDto = new ArrayList<>();
         for (User us : user) {
-            userDto.add(createUserDto(us));
+            userDto.add(toDto(us));
         }
         return userDto;
     }
 
-    public UserDto createUserDto(User user) {
+    public UserDto toDto(User user) {
         return UserDto.builder()
                 .id(user.getId())
                 .telegramId(user.getTelegramId())
                 .name(user.getName())
                 .gender(user.getGender())
-                .description(user.getDecsription())
+                .description(user.getDescription())
                 .preference(user.getPreference())
-                .stageOfQuestionnaire(user.getStateOfQuestionnaire())
+                .stageOfQuestionnaire(user.getStageOfQuestionnaire())
                 .build();
     }
-    public UserDto createUserDtoErrorMessage(User user) {
+    public UserDto toDtoErrorMessage(User user) {
         return UserDto.builder()
                 .id(user.getId())
                 .telegramId(user.getTelegramId())
@@ -38,33 +38,32 @@ public class UserMapper {
                 .build();
     }
 
-    public User createUser(UserDto userDto) {
+    public User toEntity(UserDto userDto) {
         return User.builder()
                 .id(userDto.getId())
-                .created(new Date())
                 .telegramId(userDto.getTelegramId())
+                .created(LocalDate.now())
                 .name(userDto.getName())
                 .gender(userDto.getGender())
-                .decsription(userDto.getDescription())
+                .description(userDto.getDescription())
                 .preference(userDto.getPreference())
-                .stateOfQuestionnaire(userDto.getStageOfQuestionnaire())
+                .stageOfQuestionnaire(userDto.getStageOfQuestionnaire())
                 .errorMessage("")
                 .build();
     }
 
-    public User updateUser(UserDto userDto, User user) {
+    public User toEntityUpdate(UserDto userDto, User user) {
         if (!userDto.getGender().isEmpty()) {
             user.setGender(userDto.getGender());
         } else if (!userDto.getName().isEmpty()) {
             user.setName(userDto.getName());
         } else if (!userDto.getDescription().isEmpty()) {
-            user.setDecsription(userDto.getDescription());
+            user.setDescription(userDto.getDescription());
         } else if (!userDto.getPreference().isEmpty()) {
             user.setPreference(userDto.getPreference());
         } else if (userDto.getStageOfQuestionnaire()!=1) {
-            user.setStateOfQuestionnaire(userDto.getStageOfQuestionnaire());
+            user.setStageOfQuestionnaire(userDto.getStageOfQuestionnaire());
         }
-            user.setCreated(new Date());
         return user;
     }
 }

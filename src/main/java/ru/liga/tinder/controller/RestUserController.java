@@ -7,7 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.liga.tinder.dto.LikedUserDto;
 import ru.liga.tinder.dto.UserDto;
-import ru.liga.tinder.entity.User;
 import ru.liga.tinder.service.LikedUserDataConnectionService;
 import ru.liga.tinder.service.UserDataConnectionService;
 
@@ -21,14 +20,14 @@ public class RestUserController {
     private final LikedUserDataConnectionService likedUserDataConnectionService;
     private final UserDataConnectionService userDataConnectionService;
 
-    @GetMapping()
+    @GetMapping
     public List<UserDto> getAllUsers() {
-        return userDataConnectionService.getAllUser();
+        return userDataConnectionService.findAllUser();
     }
 
     @GetMapping("/{telegramId}")
     public UserDto getById(@PathVariable("telegramId") String telegramId) {
-        return userDataConnectionService.getUserByTelegramId(telegramId);
+        return userDataConnectionService.findUser(telegramId);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -46,13 +45,13 @@ public class RestUserController {
     @GetMapping("/next/{telegramId}")
     @ResponseStatus(HttpStatus.OK)
     public UserDto getNextUser(@PathVariable("telegramId") String telegramId) {
-        return userDataConnectionService.getPreferenceUser(telegramId, "forward");
+        return userDataConnectionService.findPreferenceUser(telegramId, "next");
     }
 
     @GetMapping("/previous/{telegramId}")
     @ResponseStatus(HttpStatus.OK)
     public UserDto getPreviousUser(@PathVariable("telegramId") String telegramId) {
-        return userDataConnectionService.getPreferenceUser(telegramId, "reverse");}
+        return userDataConnectionService.findPreferenceUser(telegramId, "previous");}
 
     //todo пользователи которые лайкнули (в процессе)
     @GetMapping("/likedUser/{telegramId}")

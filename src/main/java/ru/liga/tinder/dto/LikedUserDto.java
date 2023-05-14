@@ -10,8 +10,8 @@ import lombok.*;
 @Getter
 public class LikedUserDto {
     private long id;
-    @JsonProperty("userId")
+    @JsonProperty("user_id")
     private long userId;
-    @JsonProperty("likedUserId")
+    @JsonProperty("liked_user_id")
     private long likedUserId;
 }
